@@ -26,7 +26,7 @@ PYTHONPATH=src python -m pytest tests -q
 
 A new reject case should come with a note that explains why a conforming verifier refuses it, and should verify under the reference OpenSSL before it is added.
 
-## How we review
+## How I review
 
 Only Quantova maintainers merge. Automatic merging is off. No contribution reaches the main branch without review and approval by a maintainer. State in the pull request whether any part of the contribution was produced with the help of an automated tool, so a reviewer can read it line by line.
 
