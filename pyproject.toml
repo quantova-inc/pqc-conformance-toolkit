@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pqc-conformance-toolkit"
+version = "0.1.0"
+description = "A verifier agnostic harness that tests a post quantum signature verifier against a corpus of accept and reject cases"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0 OR MIT" }
+authors = [{ name = "Quantova Inc", email = "Quantovaorg@gmail.com" }]
+keywords = ["post-quantum", "ML-DSA", "SLH-DSA", "FIPS-204", "FIPS-205", "ACVP", "conformance", "negative-testing"]
+
+[project.urls]
+Homepage = "https://github.com/quantova-inc/pqc-conformance-toolkit"
+Vectors = "https://github.com/quantova-inc/pq-sign-vectors"
+
+[project.scripts]
+pqc-conformance = "pqc_conformance.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/pqc_conformance"]

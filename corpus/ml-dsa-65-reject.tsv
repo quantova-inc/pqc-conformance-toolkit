@@ -1,0 +1,12 @@
+# Reference reject profile for ML-DSA-65 from FIPS 204
+# Paths are relative to a checkout of the reject-vectors directory of quantova-inc/pq-sign-vectors
+# Each reject case names the verification step a conforming verifier uses to refuse it
+# Columns are tab separated
+id	parameter_set	expect	reject_class	message	public_key	signature	fips_clause	note
+valid	ML-DSA-65	accept		message.bin	pk.der	valid.sig	FIPS 204 Algorithm 8	a genuine signature over the message verifies
+flip_ctilde	ML-DSA-65	reject	flip_ctilde	message.bin	pk.der	reject_flip_ctilde.sig	FIPS 204 Algorithm 8 commitment hash check	the challenge hash c tilde is altered so the recomputed value does not match
+hint_noncanonical	ML-DSA-65	reject	hint_noncanonical	message.bin	pk.der	reject_hint_noncanonical.sig	FIPS 204 hint decoding	the hint is not in canonical encoded form
+hint_over_omega	ML-DSA-65	reject	hint_over_omega	message.bin	pk.der	reject_hint_over_omega.sig	FIPS 204 omega bound on the hint	the hint sets more than omega positions
+z_out_of_range	ML-DSA-65	reject	z_out_of_range	message.bin	pk.der	reject_z_extreme.sig	FIPS 204 norm bound on z	a coefficient of z lies outside the allowed interval
+truncated	ML-DSA-65	reject	wrong_length	message.bin	pk.der	reject_truncated.sig	FIPS 204 fixed signature length	the signature is shorter than the parameter set length
+extended	ML-DSA-65	reject	wrong_length	message.bin	pk.der	reject_extended.sig	FIPS 204 fixed signature length	the signature is longer than the parameter set length
